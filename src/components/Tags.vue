@@ -242,7 +242,7 @@ export default {
   background: #C8EBFB;
 }
 .dragArea {
-  min-height: 487px;
+  min-height: 528px;
   padding: 12px 12px !important;
 }
 .mdl-grid.center-items {
@@ -266,7 +266,7 @@ export default {
 }
 .sdt-json-section {
   padding: 0px 13px;
-  height: 513px;
+  height: 553px;
   top: 93px;
 }
 .sdt-json-section:hover {
