@@ -1,6 +1,6 @@
 # Vue Draggable Tags
 
-[![version](https://img.shields.io/badge/Version-1.0.0-9b59b6.svg)](https://github.com/Josantonius/vue-draggable-tags)
+[![version](https://img.shields.io/badge/Version-1.0.0-9b59b6.svg)](https://github.com/Josantonius/vue-draggable-tags) [![Packagist](https://img.shields.io/cocoapods/l/AFNetworking.svg)](https://github.com/Josantonius/vue-draggable-tags/blob/master/LICENSE) 
 
 [Versión en español](README-ES.md)
 
