@@ -54,15 +54,11 @@ Entorno de producción con minificación de archivos.
 ## Contribuir
 
 Si deseas colaborar, puedes echar un vistazo a la lista de
-[issues](https://github.com/Josantonius/PHP-Algorithm/issues) o [tareas pendientes](#-tareas-pendientes).
+[issues](https://github.com/Josantonius/vue-draggable-tags/issues) o [tareas pendientes](#-tareas-pendientes).
 
 **Pull requests**
 
 * [Fork and clone](https://help.github.com/articles/fork-a-repo).
-* Ejecuta el comando `composer install` para instalar dependencias.
-  Esto también instalará las [dependencias de desarrollo](https://getcomposer.org/doc/03-cli.md#install).
-* Ejecuta el comando `composer fix` para estandarizar el código.
-* Ejecuta las [pruebas](#tests).
 * Crea una nueva rama (**branch**), **commit**, **push** y envíame un
   [pull request](https://help.github.com/articles/using-pull-requests).
 

@@ -54,15 +54,11 @@ Build for production with minification.
 ## Contribute
 
 If you would like to help, please take a look at the list of
-[issues](https://github.com/Josantonius/PHP-Algorithm/issues) or the [To Do](#-todo) checklist.
+[issues](https://github.com/Josantonius/vue-draggable-tags/issues) or the [To Do](#-todo) checklist.
 
 **Pull requests**
 
 * [Fork and clone](https://help.github.com/articles/fork-a-repo).
-* Run the command `composer install` to install the dependencies.
-  This will also install the [dev dependencies](https://getcomposer.org/doc/03-cli.md#install).
-* Run the command `composer fix` to excute code standard fixers.
-* Run the [tests](#tests).
 * Create a **branch**, **commit**, **push** and send me a
   [pull request](https://help.github.com/articles/using-pull-requests).
 
