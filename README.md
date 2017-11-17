@@ -24,8 +24,7 @@ Created with [MDL](https://getmdl.io/), [Vue.js](https://vuejs.org/) and [Vue.Dr
   	<img src="example.gif">
   </a>
 </p>
-
-[Live demo](https://Josantonius.github.com/vue-draggable-tags)
+[Live demo](https://josantonius.github.io/vue-draggable-tags/)
 
 ## Installation
 

@@ -25,7 +25,7 @@ Creado con [MDL](https://getmdl.io/), [Vue.js](https://vuejs.org/) y [Vue.Dragga
   </a>
 </p>
 
-[Demostración](https://Josantonius.github.com/vue-draggable-tags)
+[Demostración](https://josantonius.github.io/vue-draggable-tags/)
 
 ## Instalación 
 

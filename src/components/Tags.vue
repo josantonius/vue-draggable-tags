@@ -3,7 +3,7 @@
 
       <a href="https://github.com/Josantonius/vue-draggable-tags.git"><img
          style="position: absolute; top: 0; right: 0; border: 0; width: 150px;"
-         src="http://aral.github.io/fork-me-on-github-retina-ribbons/right-turquoise@2x.png"
+         src="https://aral.github.io/fork-me-on-github-retina-ribbons/right-turquoise@2x.png"
          alt="Fork me on GitHub"></a>
       <div class="mdl-cell mdl-cell--12-col">
          <div class="sdt-header panel-heading">
@@ -301,7 +301,7 @@ export default {
 }
 .sdt-tag {
  cursor: -webkit-grab !important;
-  padding: 8px !important;
+  padding: 10px !important;
   min-height: 5px !important;
 }
 .sdt-tag:hover {
