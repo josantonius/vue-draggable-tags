@@ -1,10 +1,7 @@
 <template>
    <div class="mdl-grid mdl-grid center-items">
 
-      <a href="https://github.com/Josantonius/vue-draggable-tags.git"><img
-         style="position: absolute; top: 0; right: 0; border: 0; width: 150px;"
-         src="https://www.felipefialho.com/piano/assets/img/ico/fork.png"
-         alt="Fork me on GitHub"></a>
+      <a href="https://github.com/Josantonius/vue-draggable-tags.git"><img class="forkme" src="https://www.felipefialho.com/piano/assets/img/ico/fork.png" alt="Fork me on GitHub"></a>
          
       <div class="mdl-cell mdl-cell--12-col">
          <div class="sdt-header panel-heading">
@@ -215,8 +212,6 @@ export default {
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 2rem 0rem 3rem;
-  position: absolute;
   text-align: center;
   font-size: 16px;
 }
@@ -258,6 +253,13 @@ export default {
 .panel-body {
   margin-left: 10px;
   margin-bottom: -39px;
+}
+.forkme {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: 0;
+  width: 150px;
 }
 .sdt-tag-icon {
   cursor: pointer;
