@@ -1,16 +1,24 @@
 <template>
   <div id="app">
-    <Tags></Tags>
+    <vue-draggable-tags></vue-draggable-tags>
   </div>
 </template>
 
 <script>
-import Tags from './components/Tags'
+import VueDraggableTags from './components/vue-draggable-tags'
 
 export default {
   name: 'app',
   components: {
-    Tags
+    VueDraggableTags
   }
 }
 </script>
+
+<style>
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+</style>

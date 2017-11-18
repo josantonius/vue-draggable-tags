@@ -1,12 +1,14 @@
 # Vue Draggable Tags
 
-[![version](https://img.shields.io/badge/Version-1.0.0-9b59b6.svg)](https://github.com/Josantonius/vue-draggable-tags) [![Packagist](https://img.shields.io/cocoapods/l/AFNetworking.svg)](https://github.com/Josantonius/vue-draggable-tags/blob/master/LICENSE) 
+[![version](https://img.shields.io/badge/Version-1.0.0-9b59b6.svg)](https://github.com/Josantonius/vue-draggable-tags) [![NPM version](https://img.shields.io/npm/v/vue-draggable-tags.svg)](https://www.npmjs.com/package/vue-draggable-tags) ![VueJS v2.x compatible](https://img.shields.io/badge/vue%202.x-compatible-green.svg) [![Packagist](https://img.shields.io/cocoapods/l/AFNetworking.svg)](https://github.com/Josantonius/vue-draggable-tags/blob/master/LICENSE)
 
 [English version](README.md)
 
 Arrastra, suelta y ordena etiquetas con Vue JS.
 
 Creado con [MDL](https://getmdl.io/), [Vue.js](https://vuejs.org/) y [Vue.Draggable](https://github.com/SortableJS/Vue.Draggable).
+
+Basado en [draggable-example](https://github.com/David-Desmaisons/draggable-example), por @David-Desmaisons.
 
 ---
 
@@ -20,7 +22,7 @@ Creado con [MDL](https://getmdl.io/), [Vue.js](https://vuejs.org/) y [Vue.Dragga
 ---
 
 <p align="center">
-  <a href="https://youtu.be/UwvTWPZ8DB8" title="Extensions For Grifus">
+  <a href="https://youtu.be/UwvTWPZ8DB8" title="Vue Draggable Tags">
   	<img src="example.gif">
   </a>
 </p>
@@ -29,7 +31,7 @@ Creado con [MDL](https://getmdl.io/), [Vue.js](https://vuejs.org/) y [Vue.Dragga
 
 ## Instalación 
 
-La mejor manera de instalar esta plantilla es a través de [npm](https://www.npmjs.com/).
+La mejor manera de instalar este proyecto es a través de [npm](https://www.npmjs.com/).
 
 Para instalar las dependencias simplemente:
 

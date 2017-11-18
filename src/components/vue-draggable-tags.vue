@@ -3,8 +3,9 @@
 
       <a href="https://github.com/Josantonius/vue-draggable-tags.git"><img
          style="position: absolute; top: 0; right: 0; border: 0; width: 150px;"
-         src="https://aral.github.io/fork-me-on-github-retina-ribbons/right-turquoise@2x.png"
+         src="https://www.felipefialho.com/piano/assets/img/ico/fork.png"
          alt="Fork me on GitHub"></a>
+         
       <div class="mdl-cell mdl-cell--12-col">
          <div class="sdt-header panel-heading">
             <h2 class="panel-title mdl-cell mdl-cell--12-col">DRAG, DROP & SORT TAGS</h2>
@@ -27,17 +28,17 @@
             </label>
          </div>
          <button class="sdt-sortable-btn sdt-sort-button mdl-button mdl-button--fab mdl-button--mini-fab mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent mdl-color--teal-100" @click="orderList(selectedTags)">
-            <i class="material-icons  mdl-color-text--indigo-500">&#xE053;</i>
+            <i class="material-icons  sdt-color-teal"><sort-alphabetical-icon /></i>
          </button>
          <div  class="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--2dp mdl-color--teal-500">
             <draggable element="span" v-model="selectedTags" :options="selectedTagsOptions" :move="onMove" @start="isDragging=true" @end="isDragging=false"> 
                <transition-group  type="transition"  name="'flip-list'" class="mdl-list dragArea">
                   <li class="sdt-tag mdl-cell mdl-cell--12-col sdt-tag-item mdl-list__item mdl-card mdl-shadow--2dp" v-for="(element, index) in selectedTags" :key="element.tag">
                      <span class="mdl-list__item-primary-content">
-                        <i v-bind:class="[element.fixed ? 'mdl-color-text--red-500' : 'mdl-color-text--grey-300']" class="material-icons sdt-tag-icon sdt-tag-icon-left" v-on:click="element.fixed = !element.fixed">&#xE897;</i>
+                        <i v-bind:class="[element.fixed ? 'sdt-color-red' : 'sdt-color-gray']" class="material-icons sdt-tag-icon sdt-tag-icon-left" v-on:click="element.fixed = !element.fixed"><lock-icon /></i>
                         {{element.tag}}
                      </span>
-                     <i class="material-icons sdt-tag-icon sdt-tag-icon-right mdl-color-text--teal-500" v-on:click="moveTag(index, 'selected', 'available')">&#xE5C8;</i>
+                     <i class="material-icons sdt-tag-icon sdt-tag-icon-right sdt-color-teal" v-on:click="moveTag(index, 'selected', 'available')"><arrow-right-icon /></i>
                   </li> 
                </transition-group>
             </draggable>
@@ -60,28 +61,28 @@
             </label>
          </div>
          <button class="sdt-sortable-btn sdt-sort-button mdl-button mdl-button--fab mdl-button--mini-fab mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent mdl-color--indigo-100" @click="orderList(availableTags)">
-            <i class="material-icons mdl-color-text--indigo-500">&#xE053;</i>
+            <i class="material-icons sdt-color-indigo"><sort-alphabetical-icon /></i>
          </button>
          <div  class="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--2dp mdl-color--indigo-500">
             <draggable class="mdl-list dragArea" v-model="availableTags" :options="availableTagsOptions" :move="onMove" @start="isDragging=true" @end="isDragging=false"> 
                <transition-group type="transition" :name="'flip-list'">
                   <li class="sdt-tag mdl-cell mdl-cell--12-col sdt-tag-item mdl-list__item mdl-card mdl-shadow--2dp" v-for="(element, index) in availableTags" :key="element.tag">
                      <span class="mdl-list__item-primary-content">
-                        <i class="sdt-tag-icon sdt-tag-icon-left material-icons mdl-color-text--indigo-500 sdt-tag-icon" v-on:click="moveTag(index, 'available', 'selected')">&#xE5C4;</i>
+                        <i class="sdt-tag-icon sdt-tag-icon-left material-icons sdt-color-indigo sdt-tag-icon" v-on:click="moveTag(index, 'available', 'selected')"><arrow-left-icon /></i>
                         {{element.tag}}
                      </span>
-                        <i v-bind:class="[element.fixed ? 'mdl-color-text--red-500' : 'mdl-color-text--grey-300']" class="material-icons sdt-tag-icon sdt-tag-icon-right" v-on:click="element.fixed = !element.fixed">&#xE897;</i>
+                        <i v-bind:class="[element.fixed ? 'sdt-color-red' : 'sdt-color-gray']" class="material-icons sdt-tag-icon sdt-tag-icon-right" v-on:click="element.fixed = !element.fixed"><lock-icon /></i>
                   </li> 
                </transition-group>
             </draggable>
          </div>
       </div>
 
-      <div  class="sdt-json-section mdl-cell mdl-cell--3-col mdl-card mdl-color-text--teal-500 mdl-color--teal-50">
+      <div  class="sdt-json-section mdl-cell mdl-cell--3-col mdl-card sdt-color-teal mdl-color--teal-50">
          <pre class="sdt-json-pre">{{selectedTagsOptionsString}}</pre>
       </div>
 
-      <div class="sdt-json-section mdl-cell mdl-cell--3-col mdl-card mdl-card mdl-color-text--indigo-500 mdl-color--indigo-50">
+      <div class="sdt-json-section mdl-cell mdl-cell--3-col mdl-card mdl-card sdt-color-indigo mdl-color--indigo-50">
          <pre class="sdt-json-pre">{{availableTagsString}}</pre>
       </div>
 
@@ -90,19 +91,26 @@
             <p class="panel-title mdl-cell mdl-cell--12-col">Created with <a href="https://getmdl.io/" class="mdl-color-text--teal-700">MDL</a>, <a href="https://vuejs.org/" class="mdl-color-text--teal-700">Vue.js</a> and <a href="https://github.com/SortableJS/Vue.Draggable" class="mdl-color-text--teal-700">Vue.Draggable</a>.<br>© 2017 <a href="https://github.com/Josantonius" class="mdl-color-text--teal-700">Josantonius</a></p>
          </footer>
       </div>
-
    </div>
-
 </template>
 
 <script>
 import draggable from 'vuedraggable'
+import 'icons/styles.css'
+import LockIcon from 'icons/lock'
+import ArrowLeftIcon from 'icons/arrow-left'
+import ArrowRightIcon from 'icons/arrow-right'
+import SortAlphabeticalIcon from 'icons/sort-alphabetical'
 
 export default {
 
-  name: 'tag',
+  name: 'vue-draggable-tags',
   components: {
     draggable,
+    LockIcon,
+    ArrowLeftIcon,
+    ArrowRightIcon,
+    SortAlphabeticalIcon,
   },
   data () {
     return (typeof SDT !== 'undefined') ? SDT : {
@@ -169,7 +177,8 @@ export default {
           pull: this[place].cloneable ? 'clone' : 'move',
           put:  this[place].droppable
         },
-        disabled: !this[place].editable
+        disabled: !this[place].editable,
+        ghostClass: 'ghost'
       };
     }
   },
@@ -206,9 +215,7 @@ export default {
   bottom: 0;
   left: 0;
   right: 0;
-
-  font-size: 16px;
-  padding: 2rem 0rem 4rem;
+  padding: 2rem 0rem 3rem;
   position: absolute;
   text-align: center;
   font-size: 16px;
@@ -301,11 +308,27 @@ export default {
 }
 .sdt-tag {
  cursor: -webkit-grab !important;
-  padding: 10px !important;
+  padding: 8px !important;
   min-height: 5px !important;
 }
 .sdt-tag:hover {
   box-shadow: 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12), 0 5px 5px -3px rgba(0,0,0,.2);
+}
+.sdt-color-red {
+   fill: #f44336;
+   color: #f44336;
+}
+.sdt-color-gray {
+   fill: #e0e0e0;
+   color: #e0e0e0;
+}
+.sdt-color-teal {
+   fill: #009688;
+   color: #009688;
+}
+.sdt-color-indigo {
+   fill: #3f51b5;
+   color: #3f51b5;
 }
 .sdt-teal-switch > .mdl-switch.is-checked .mdl-switch__thumb {
     background-color: #009688 !important;
@@ -313,7 +336,7 @@ export default {
 .sdt-teal-switch > .mdl-switch.is-checked .mdl-switch__track {
     background: rgba(0, 150, 136, 0.51) !important;
 }
-.sdt-teal-switch > .mdl-switch__ripple-container .mdl-ripple {
+.mdl-switch__ripple-container .mdl-ripple {
     background: #009688 !important;
 }
 </style>
