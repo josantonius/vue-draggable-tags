@@ -35,7 +35,7 @@ The preferred way to install this project is through [npm](https://www.npmjs.com
 
 To install dependencies simply:
 
-    $ npm install vue-draggable-tags
+    $ npm install
 
 ## Quick Start
 

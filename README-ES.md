@@ -35,7 +35,7 @@ La mejor manera de instalar este proyecto es a través de [npm](https://www.npmj
 
 Para instalar las dependencias simplemente:
 
-    $ npm install vue-draggable-tags
+    $ npm install
 
 ## Cómo empezar
 
