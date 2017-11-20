@@ -1,86 +1,95 @@
 <template>
    <div class="mdl-grid mdl-grid center-items">
-
-      <a href="https://github.com/Josantonius/vue-draggable-tags.git"><img class="forkme" src="https://raw.githubusercontent.com/Josantonius/josantonius.github.io/master/static/images/fork-me-on-github.png" alt="Fork me on GitHub"></a>
+      <a href="https://github.com/Josantonius/vue-draggable-tags.git">
+         <img class="forkme" src="https://raw.githubusercontent.com/Josantonius/josantonius.github.io/master/static/images/fork-me-on-github.png" alt="Fork me on GitHub">
+      </a>
          
       <div class="mdl-cell mdl-cell--12-col">
          <div class="sdt-header panel-heading">
-            <h2 class="panel-title mdl-cell mdl-cell--12-col">DRAG, DROP & SORT TAGS</h2>
+            <h2 class="panel-title mdl-cell mdl-cell--12-col">
+               DRAG, DROP & SORT TAGS
+            </h2>
          </div>
       </div>
 
-      <div id="sdt-selected-tags" class="mdl-cell mdl-cell--3-col">
+      <div id="sdt-selected-tags" class="mdl-cell mdl-cell--3-col mdl-cell--6-col-tablet">
+
          <div class="panel-body sdt-teal-switch">
             <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-1">
-              <input type="checkbox" id="switch-1" v-model="selected.editable" class="mdl-switch__input">
-              <span class="mdl-switch__label">Enable drag and drop</span>
+               <input type="checkbox" id="switch-1" v-model="selected.editable" class="mdl-switch__input">
+               <span class="mdl-switch__label">Enable drag and drop</span>
             </label>
+            
             <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-2">
-              <input type="checkbox" v-model="selected.droppable" id="switch-2" class="mdl-switch__input">
-              <span class="mdl-switch__label">Enable dropping</span>
+               <input type="checkbox" v-model="selected.droppable" id="switch-2" class="mdl-switch__input">
+               <span class="mdl-switch__label">Enable dropping</span>
             </label>
+            
             <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-3">
-              <input type="checkbox" v-model="selected.cloneable" id="switch-3" class="mdl-switch__input">
-              <span class="mdl-switch__label">Enable cloning</span>
+               <input type="checkbox" v-model="selected.cloneable" id="switch-3" class="mdl-switch__input">
+               <span class="mdl-switch__label">
+               Enable cloning</span>
             </label>
          </div>
-         <button class="sdt-sortable-btn sdt-sort-button mdl-button mdl-button--fab mdl-button--mini-fab mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent mdl-color--teal-100" @click="orderList(selectedTags)">
+
+         <button class="sdt-sortable-btn sdt-sort-button mdl-button mdl-button--fab mdl-button--mini-fab mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent mdl-color--teal-100" @click="orderList(selected.tags)">
             <i class="material-icons  sdt-color-teal"><sort-alphabetical-icon /></i>
          </button>
+
          <div  class="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--2dp mdl-color--teal-500">
-            <draggable element="span" v-model="selectedTags" :options="selectedTagsOptions" :move="onMove" @start="isDragging=true" @end="isDragging=false"> 
-               <transition-group  type="transition"  name="'flip-list'" class="mdl-list dragArea">
-                  <li class="sdt-tag mdl-cell mdl-cell--12-col sdt-tag-item mdl-list__item mdl-card mdl-shadow--2dp" v-for="(element, index) in selectedTags" :key="element.tag">
+            <draggable element="span" v-model="selected.tags" :options="getOptions(selected)" :move="onMove" @start="isDragging=true" @end="isDragging=false">
+               <transition-group type="transition" :name="'flip-list'" class="mdl-list dragArea" tag="ul">
+                  <li class="sdt-tag mdl-cell mdl-cell--12-col sdt-tag-item mdl-list__item mdl-card mdl-shadow--2dp" v-for="(element, index) in selected.tags" :key="element.tag">
                      <span class="mdl-list__item-primary-content">
-                        <i v-bind:class="[element.fixed ? 'sdt-color-red' : 'sdt-color-gray']" class="material-icons sdt-tag-icon sdt-tag-icon-left" v-on:click="element.fixed = !element.fixed"><lock-icon /></i>
+                        <i :class="[element.fixed ? 'sdt-color-red' : 'sdt-color-gray']" class="material-icons sdt-tag-icon sdt-tag-icon-left" @click="element.fixed = !element.fixed"><lock-icon /></i>
                         {{element.tag}}
                      </span>
-                     <i class="material-icons sdt-tag-icon sdt-tag-icon-right sdt-color-teal" v-on:click="moveTag(index, 'selected', 'available')"><arrow-right-icon /></i>
+                     <i class="material-icons sdt-tag-icon sdt-tag-icon-right sdt-color-teal" @click="onClick(index, selected, available)"><arrow-right-icon /></i>
                   </li> 
                </transition-group>
             </draggable>
          </div>
       </div>
 
-      <div id="sdt-available-tags" class="mdl-cell mdl-cell--3-col">
+      <div id="sdt-available-tags" class="mdl-cell mdl-cell--3-col mdl-cell--6-col-tablet">
          <div class="panel-body sdt-indigo-switch">
             <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-4">
-              <input type="checkbox" id="switch-4" v-model="available.editable" class="mdl-switch__input">
-              <span class="mdl-switch__label">Enable drag and drop</span>
+               <input type="checkbox" id="switch-4" v-model="available.editable" class="mdl-switch__input">
+               <span class="mdl-switch__label">Enable drag and drop</span>
             </label>
             <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-5">
-              <input type="checkbox" v-model="available.droppable" id="switch-5" class="mdl-switch__input">
-              <span class="mdl-switch__label">Enable dropping</span>
+               <input type="checkbox" v-model="available.droppable" id="switch-5" class="mdl-switch__input">
+               <span class="mdl-switch__label">Enable dropping</span>
             </label>
             <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-6">
-              <input type="checkbox" v-model="available.cloneable" id="switch-6" class="mdl-switch__input">
-              <span class="mdl-switch__label">Enable cloning</span>
+               <input type="checkbox" v-model="available.cloneable" id="switch-6" class="mdl-switch__input">
+               <span class="mdl-switch__label">Enable cloning</span>
             </label>
          </div>
-         <button class="sdt-sortable-btn sdt-sort-button mdl-button mdl-button--fab mdl-button--mini-fab mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent mdl-color--indigo-100" @click="orderList(availableTags)">
+         <button class="sdt-sortable-btn sdt-sort-button mdl-button mdl-button--fab mdl-button--mini-fab mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent mdl-color--indigo-100" @click="orderList(available.tags)">
             <i class="material-icons sdt-color-indigo"><sort-alphabetical-icon /></i>
          </button>
          <div  class="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--2dp mdl-color--indigo-500">
-            <draggable class="mdl-list dragArea" v-model="availableTags" :options="availableTagsOptions" :move="onMove" @start="isDragging=true" @end="isDragging=false"> 
-               <transition-group type="transition" :name="'flip-list'">
-                  <li class="sdt-tag mdl-cell mdl-cell--12-col sdt-tag-item mdl-list__item mdl-card mdl-shadow--2dp" v-for="(element, index) in availableTags" :key="element.tag">
+            <draggable element="span" v-model="available.tags" :options="getOptions(available)" :move="onMove" @start="isDragging=true" @end="isDragging=false"> 
+               <transition-group type="transition" :name="'flip-list'" class="mdl-list dragArea" tag="ul">
+                  <li class="sdt-tag mdl-cell mdl-cell--12-col sdt-tag-item mdl-list__item mdl-card mdl-shadow--2dp" v-for="(element, index) in available.tags" :key="element.tag">
                      <span class="mdl-list__item-primary-content">
-                        <i class="sdt-tag-icon sdt-tag-icon-left material-icons sdt-color-indigo sdt-tag-icon" v-on:click="moveTag(index, 'available', 'selected')"><arrow-left-icon /></i>
+                        <i class="sdt-tag-icon sdt-tag-icon-left material-icons sdt-color-indigo sdt-tag-icon" @click="onClick(index, available, selected)"><arrow-left-icon /></i>
                         {{element.tag}}
                      </span>
-                        <i v-bind:class="[element.fixed ? 'sdt-color-red' : 'sdt-color-gray']" class="material-icons sdt-tag-icon sdt-tag-icon-right" v-on:click="element.fixed = !element.fixed"><lock-icon /></i>
+                        <i :class="[element.fixed ? 'sdt-color-red' : 'sdt-color-gray']" class="material-icons sdt-tag-icon sdt-tag-icon-right" @click="element.fixed = !element.fixed"><lock-icon /></i>
                   </li> 
                </transition-group>
             </draggable>
          </div>
       </div>
 
-      <div  class="sdt-json-section mdl-cell mdl-cell--3-col mdl-card sdt-color-teal mdl-color--teal-50">
-         <pre class="sdt-json-pre">{{selectedTagsOptionsString}}</pre>
+      <div class="sdt-json-section mdl-cell mdl-cell--3-col mdl-cell--6-col-tablet mdl-card sdt-color-teal mdl-color--teal-50">
+         <pre class="sdt-json-pre">{{selected.tags}}</pre>
       </div>
 
-      <div class="sdt-json-section mdl-cell mdl-cell--3-col mdl-card mdl-card sdt-color-indigo mdl-color--indigo-50">
-         <pre class="sdt-json-pre">{{availableTagsString}}</pre>
+      <div class="sdt-json-section mdl-cell mdl-cell--3-col mdl-cell--6-col-tablet mdl-card mdl-card sdt-color-indigo mdl-color--indigo-50">
+         <pre class="sdt-json-pre">{{available.tags}}</pre>
       </div>
 
       <div class="mdl-cell mdl-cell--12-col">
@@ -92,8 +101,8 @@
 </template>
 
 <script>
-import draggable from 'vuedraggable'
 import 'icons/styles.css'
+import draggable from 'vuedraggable'
 import LockIcon from 'icons/lock'
 import ArrowLeftIcon from 'icons/arrow-left'
 import ArrowRightIcon from 'icons/arrow-right'
@@ -110,26 +119,26 @@ export default {
     SortAlphabeticalIcon,
   },
   data () {
-    return (typeof SDT !== 'undefined') ? SDT : {
-      selectedTags: [],
-      availableTags: [
-        { tag: "Go", slug: "go", fixed: true },
-        { tag: "PHP", slug: "php", fixed: true },
-        { tag: "R", slug: "r", fixed: true },
-        { tag: "Kotlin", slug: "kotlin", fixed: false },
-        { tag: "Java", slug: "java", fixed: false },
-        { tag: "C++", slug: "c--", fixed: false },
-        { tag: "JavaScript", slug: "javascript", fixed: false },
-        { tag: "C#", slug: "c-", fixed: false },
-        { tag: "C", slug: "c", fixed: false },
-        { tag: "Python", slug: "phyton", fixed: false }
-      ],
+    return {
       selected: {
+        tags: [],
         editable: true,
         cloneable: false,
         droppable: true,
       },
       available: {
+        tags: [        
+          { tag: "Go", slug: "go", fixed: true },
+          { tag: "PHP", slug: "php", fixed: true },
+          { tag: "R", slug: "r", fixed: true },
+          { tag: "Kotlin", slug: "kotlin", fixed: false },
+          { tag: "Java", slug: "java", fixed: false },
+          { tag: "C++", slug: "c--", fixed: false },
+          { tag: "JavaScript", slug: "javascript", fixed: false },
+          { tag: "C#", slug: "c-", fixed: false },
+          { tag: "C", slug: "c", fixed: false },
+          { tag: "Python", slug: "phyton", fixed: false }
+        ],
         editable: true,
         cloneable: false,
         droppable: true,
@@ -143,21 +152,16 @@ export default {
       datalist.sort((one,two) =>{
         return one.tag.localeCompare(two.tag); })
     },
-    moveTag (index, fromPlace, toPlace) {
-      var fromList = this[fromPlace + 'Tags'];
-      var toList = this[toPlace + 'Tags'];
-      var currentTag = fromList[index];
-      fromPlace = this[fromPlace];
-      toPlace = this[toPlace];
-      if (!currentTag.fixed && fromPlace.editable && toPlace.editable && toPlace.droppable) {
-        if (fromPlace.cloneable || toList.filter(function(e) { 
-          return e.tag == currentTag.tag; }).length === 0) {
-          setTimeout(function() {
-            toList.push(currentTag);
-          },300);
+    onClick (index, from, to) {
+      var current = from.tags[index];
+      if (!current.fixed && from.editable && to.editable && to.droppable) {
+        if (from.cloneable || to.tags.filter(function(e) { 
+          return e.tag == current.tag; 
+        }).length === 0) {
+            to.tags.push(current);
         }
-        if (!fromPlace.cloneable) {
-          fromList.splice(index, 1);
+        if (!from.cloneable) {
+          from.tags.splice(index, 1);
         }
       }
     },
@@ -166,31 +170,18 @@ export default {
       const draggedElement = draggedContext.element;
       return (!relatedElement || !relatedElement.fixed) && !draggedElement.fixed
     },
-    getOptions (place) {
+    getOptions(place) {
       return  {
+        sort: true,
         animation: 0,
         group:{
-          name:'labels',
-          pull: this[place].cloneable ? 'clone' : 'move',
-          put:  this[place].droppable
+          name:'tags',
+          pull: place.cloneable ? 'clone' : true,
+          put:  place.droppable
         },
-        disabled: !this[place].editable,
+        disabled: !place.editable,
         ghostClass: 'ghost'
       };
-    }
-  },
-  computed: {
-    selectedTagsOptions () {
-      return this.getOptions('selected');
-    },
-    availableTagsOptions () {
-      return this.getOptions('available');
-    },
-    selectedTagsOptionsString(){
-      return JSON.stringify(this.selectedTags, null, 2);  
-    },
-    availableTagsString(){
-      return JSON.stringify(this.availableTags, null, 2);  
     }
   },
   watch: {
@@ -219,7 +210,7 @@ export default {
   text-decoration: none;
 }
 .flip-list-move {
-  transition: transform 0.5s;
+  transition: transform 0.3s;
 }
 .flip-list-item {
   display: inline-block;
@@ -228,13 +219,9 @@ export default {
 .flip-list-enter-active, .flip-list-leave-active {
   transition: all 0.3s;
 }
-.flip-list-enter {
+.flip-list-enter, .flip-list-leave-to {
   opacity: 0;
   transform: translateY(-50px);
-}
-.flip-list-leave-to {
-  opacity: 0;
-  transform: translateX(-50px);
 }
 .no-move {
   transition: transform 0s;
@@ -245,7 +232,7 @@ export default {
 }
 .dragArea {
   min-height: 528px;
-  padding: 12px 12px !important;
+  padding: 2px 15px !important;
 }
 .mdl-grid.center-items {
   justify-content: center;
@@ -275,8 +262,7 @@ export default {
 }
 .sdt-json-section {
   padding: 0px 13px;
-  height: 553px;
-  top: 93px;
+  height: 557px;
 }
 .sdt-json-section:hover {
   overflow: auto !important;
@@ -309,7 +295,7 @@ export default {
   width: 100%;
 }
 .sdt-tag {
- cursor: -webkit-grab !important;
+  cursor: -webkit-grab !important;
   padding: 8px !important;
   min-height: 5px !important;
 }
@@ -317,28 +303,33 @@ export default {
   box-shadow: 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12), 0 5px 5px -3px rgba(0,0,0,.2);
 }
 .sdt-color-red {
-   fill: #f44336;
-   color: #f44336;
+  fill: #f44336;
+  color: #f44336;
 }
 .sdt-color-gray {
-   fill: #e0e0e0;
-   color: #e0e0e0;
+  fill: #e0e0e0;
+  color: #e0e0e0;
 }
 .sdt-color-teal {
-   fill: #009688;
-   color: #009688;
+  fill: #009688;
+  color: #009688;
 }
 .sdt-color-indigo {
-   fill: #3f51b5;
-   color: #3f51b5;
+  fill: #3f51b5;
+  color: #3f51b5;
 }
 .sdt-teal-switch > .mdl-switch.is-checked .mdl-switch__thumb {
-    background-color: #009688 !important;
+  background-color: #009688 !important;
 }
 .sdt-teal-switch > .mdl-switch.is-checked .mdl-switch__track {
-    background: rgba(0, 150, 136, 0.51) !important;
+  background: rgba(0, 150, 136, 0.51) !important;
 }
 .mdl-switch__ripple-container .mdl-ripple {
-    background: #009688 !important;
+  background: #009688 !important;
+}
+@media (min-width: 840px) {
+  .sdt-json-section {
+    top: 93px;
+  }
 }
 </style>

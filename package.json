@@ -3,7 +3,7 @@
   "version": "1.0.3",
   "description": "A Vue.js project",
   "author": "Josantonius <hello@josantonius.com>",
-  "private": false,
+  "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",
     "build": "node build/build.js"
