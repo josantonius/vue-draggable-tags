@@ -1,6 +1,7 @@
 # Vue Draggable Tags
 
-[![NPM version](https://img.shields.io/npm/v/vue-draggable-tags.svg)](https://www.npmjs.com/package/vue-draggable-tags) ![VueJS v2.x compatible](https://img.shields.io/badge/vue%202.x-compatible-green.svg) [![Packagist](https://img.shields.io/cocoapods/l/AFNetworking.svg)](https://github.com/Josantonius/vue-draggable-tags/blob/master/LICENSE)
+[![NPM version](https://img.shields.io/npm/v/vue-draggable-tags.svg)](https://www.npmjs.com/package/vue-draggable-tags)
+[![Packagist](https://img.shields.io/cocoapods/l/AFNetworking.svg)](LICENSE)
 
 [Versión en español](README-ES.md)
 
@@ -14,16 +15,14 @@ Based on [draggable-example](https://github.com/David-Desmaisons/draggable-examp
 
 - [Installation](#installation)
 - [Quick Start](#quick-start)
-- [TODO](#-todo)
-- [Contribute](#contribute)
+- [Sponsor](#Sponsor)
 - [License](#license)
-- [Copyright](#copyright)
 
 ---
 
 <p align="center">
   <a href="https://josantonius.github.io/vue-draggable-tags/" title="Vue Draggable Tags">
-  	<img src="https://josantonius.github.io/vue-draggable-tags/example.gif">
+   <img src="https://josantonius.github.io/vue-draggable-tags/example.gif">
   </a>
 </p>
 
@@ -35,43 +34,25 @@ The preferred way to install this project is through [npm](https://www.npmjs.com
 
 To install dependencies simply:
 
-    $ npm install
+    npm install
 
 ## Quick Start
 
 Serve with hot reload:
 
-    $ npm run dev
+    npm run dev
 
 Build for production with minification:
 
-    $ npm run build
+    npm run build
 
-## ☑ TODO
+## Sponsor
 
-- [ ] Add new feature
-- [ ] Improve documentation
-- [ ] Refactor code
-
-## Contribute
-
-If you would like to help, please take a look at the list of
-[issues](https://github.com/Josantonius/vue-draggable-tags/issues) or the [To Do](#-todo) checklist.
-
-**Pull requests**
-
-* [Fork and clone](https://help.github.com/articles/fork-a-repo).
-* Create a **branch**, **commit**, **push** and send me a
-  [pull request](https://help.github.com/articles/using-pull-requests).
+If this project helps you to reduce your development time,
+[you can sponsor me](https://github.com/josantonius#sponsor) to support my open source work :blush:
 
 ## License
 
-This project is licensed under **MIT license**. See the [LICENSE](LICENSE) file for more info.
+This repository is licensed under the [MIT License](LICENSE).
 
-## Copyright
-
-2017 Josantonius, [josantonius.com](https://josantonius.com/)
-
-If you find it useful, let me know :wink:
-
-You can contact me on [Twitter](https://twitter.com/Josantonius) or through my [email](mailto:hello@josantonius.com).
+Copyright © 2017-2022, [Josantonius](https://github.com/josantonius#contact)

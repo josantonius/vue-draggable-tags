@@ -2,4 +2,8 @@
 node_modules/
 dist/
 npm-debug.log
-
+.repository.md
+.vscode/
+vue-draggable-tags.code-workspace
+package-lock.json
+static/

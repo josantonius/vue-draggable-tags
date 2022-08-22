@@ -1,6 +1,7 @@
 # Vue Draggable Tags
 
-[![NPM version](https://img.shields.io/npm/v/vue-draggable-tags.svg)](https://www.npmjs.com/package/vue-draggable-tags) ![VueJS v2.x compatible](https://img.shields.io/badge/vue%202.x-compatible-green.svg) [![Packagist](https://img.shields.io/cocoapods/l/AFNetworking.svg)](https://github.com/Josantonius/vue-draggable-tags/blob/master/LICENSE)
+[![NPM version](https://img.shields.io/npm/v/vue-draggable-tags.svg)](https://www.npmjs.com/package/vue-draggable-tags)
+[![Packagist](https://img.shields.io/cocoapods/l/AFNetworking.svg)](LICENSE)
 
 [English version](README.md)
 
@@ -14,64 +15,45 @@ Basado en [draggable-example](https://github.com/David-Desmaisons/draggable-exam
 
 - [Instalación](#instalación)
 - [Cómo empezar](#cómo-empezar)
-- [Tareas pendientes](#-tareas-pendientes)
-- [Contribuir](#contribuir)
+- [Patrocinar](#patrocinar)
 - [Licencia](#licencia)
-- [Copyright](#copyright)
 
 ---
 
 <p align="center">
   <a href="https://josantonius.github.io/vue-draggable-tags/" title="Vue Draggable Tags">
-  	<img src="https://josantonius.github.io/vue-draggable-tags/example.gif">
+   <img src="https://josantonius.github.io/vue-draggable-tags/example.gif">
   </a>
 </p>
 
 [Demostración](https://josantonius.github.io/vue-draggable-tags/)
 
-## Instalación 
+## Instalación
 
 La mejor manera de instalar este proyecto es a través de [npm](https://www.npmjs.com/).
 
 Para instalar las dependencias simplemente:
 
-    $ npm install
+    npm install
 
 ## Cómo empezar
 
 Entorno de desarrollo con recarga en vivo:
 
-    $ npm run dev
+    npm run dev
 
 Entorno de producción con minificación de archivos:
 
-    $ npm run build
+    npm run build
 
-## ☑ Tareas pendientes
+## Patrocinar
 
-- [ ] Añadir nueva funcionalidad
-- [ ] Mejorar documentación
-- [ ] Refactorizar código
-
-## Contribuir
-
-Si deseas colaborar, puedes echar un vistazo a la lista de
-[issues](https://github.com/Josantonius/vue-draggable-tags/issues) o [tareas pendientes](#-tareas-pendientes).
-
-**Pull requests**
-
-* [Fork and clone](https://help.github.com/articles/fork-a-repo).
-* Crea una nueva rama (**branch**), **commit**, **push** y envíame un
-  [pull request](https://help.github.com/articles/using-pull-requests).
+Si este proyecto te ayuda a reducir el tiempo de desarrollo,
+[puedes patrocinarme](https://github.com/josantonius/lang/es-ES/README.md#patrocinar)
+para apoyar mi trabajo :blush:
 
 ## Licencia
 
-Este proyecto está licenciado bajo **licencia MIT**. Consulta el archivo [LICENSE](LICENSE) para más información.
+Este repositorio tiene una licencia [MIT License](LICENSE).
 
-## Copyright
-
-2017 Josantonius, [josantonius.com](https://josantonius.com/)
-
-Si te ha resultado útil, házmelo saber :wink:
-
-Puedes contactarme en [Twitter](https://twitter.com/Josantonius) o a través de mi [correo electrónico](mailto:hello@josantonius.com).
+Copyright © 2017-2022, [Josantonius](https://github.com/josantonius/lang/es-ES/README.md#contacto)
