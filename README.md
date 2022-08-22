@@ -22,7 +22,7 @@ Based on [draggable-example](https://github.com/David-Desmaisons/draggable-examp
 
 <p align="center">
   <a href="https://josantonius.github.io/vue-draggable-tags/" title="Vue Draggable Tags">
-   <img src="https://josantonius.github.io/vue-draggable-tags/example.gif">
+   <img src="docs/static/images/example.gif">
   </a>
 </p>
 

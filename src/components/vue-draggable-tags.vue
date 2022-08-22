@@ -1,7 +1,7 @@
 <template>
    <div class="mdl-grid mdl-grid center-items">
       <a href="https://github.com/Josantonius/vue-draggable-tags.git">
-         <img class="forkme" src="https://raw.githubusercontent.com/Josantonius/josantonius.github.io/master/static/images/fork-me-on-github.png" alt="Fork me on GitHub">
+         <img class="forkme" src="https://raw.githubusercontent.com/Josantonius/josantonius.github.io/vue-draggable-tags/static/images/fork-me-on-github.png" alt="Fork me on GitHub">
       </a>
          
       <div class="mdl-cell mdl-cell--12-col">
